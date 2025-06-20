@@ -6,6 +6,7 @@ on:
     paths:
       - 'apps/**'
       - 'monitoring/**'
+      - 'secrets/**'
 
 jobs:
   sync:
