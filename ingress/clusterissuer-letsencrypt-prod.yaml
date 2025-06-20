@@ -14,7 +14,3 @@ spec:
             class: nginx
 
 # Substitua `your-email@example.com` pelo seu email para notificações e renovação TLS automática.
-
-# Agora o cert-manager criará certificados TLS automaticamente para os domínios especificados nos Ingressos.
-
-# Podemos seguir para o **Passo 7: Configurar Observabilidade com Prometheus, Grafana e Alertmanager via ArgoCD**?
