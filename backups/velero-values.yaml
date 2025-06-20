@@ -1,0 +1,21 @@
+credentials:
+  useSecret: true
+  secretContents:
+    cloud: |
+      [default]
+      aws_access_key_id=<YOUR_AWS_ACCESS_KEY_ID>
+      aws_secret_access_key=<YOUR_AWS_SECRET_ACCESS_KEY>
+
+configuration:
+  provider: aws
+  backupStorageLocation:
+    bucket: my-velero-backups
+    config:
+      region: us-east-1
+      s3ForcePathStyle: true
+      s3Url: https://s3.amazonaws.com
+  volumeSnapshotLocation:
+    config:
+      region: us-east-1
+
+deployRestic: true

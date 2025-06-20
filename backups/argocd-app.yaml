@@ -1,0 +1,35 @@
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: velero
+    namespace: argocd
+  spec:
+    project: default
+    source:
+      repoURL: https://vmware-tanzu.github.io/helm-charts
+      chart: velero
+      targetRevision: 6.0.0
+      helm:
+        values: |
+          {{ .Files.Get "backups/velero-values.yaml" | nindent 10 }}
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: velero
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+
+# === Instruções ===
+# 1. Substitua <YOUR_AWS_ACCESS_KEY_ID> e <YOUR_AWS_SECRET_ACCESS_KEY>
+# 2. Garanta que o bucket S3 existe
+# 3. Habilite permissões no IAM para backups e snapshots EBS
+# 4. Após sync via ArgoCD, o Velero estará funcional com Restic para volumes
+
+# === Comando para criar backup ===
+# velero backup create myapp-backup --include-namespaces myapp-dev
+
+# === Comando para restaurar ===
+# velero restore create --from-backup myapp-backup
