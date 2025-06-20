@@ -19,3 +19,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 80
+
+# === Notas ===
+# • Requer sops + chave GPG ou KMS configurada
+# • O ArgoCD deve estar com a flag `--enable-sops` ativada
+# • Secrets permanecem seguros em Git pois os dados estão criptografados
