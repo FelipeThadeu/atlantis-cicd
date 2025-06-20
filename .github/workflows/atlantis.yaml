@@ -1,0 +1,14 @@
+name: Atlantis Terraform Plan & Apply
+
+on:
+  pull_request:
+    paths:
+      - 'infrastructure/**'
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Trigger Atlantis via Webhook (self-hosted Atlantis needed)
+        run: echo "Atlantis runs in its own container. Pull requests will trigger Atlantis plan/apply"
