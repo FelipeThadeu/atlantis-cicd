@@ -4,4 +4,4 @@ image:
   tag: stable
 service:
   type: LoadBalancer
-  port: 80
+  port: 6050
