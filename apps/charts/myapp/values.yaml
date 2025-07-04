@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
-  repository: kubedevio/rotten-potatoes
-  tag: v1
+  repository: nginx
+  tag: latest
 service:
   type: LoadBalancer
   port: 80
