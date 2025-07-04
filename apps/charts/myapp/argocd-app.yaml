@@ -8,7 +8,7 @@ spec:
     namespace: default
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/YOUR-ORG/apps
+    repoURL: https://github.dev/FelipeThadeu/atlantis-cicd
     path: myapp/charts/myapp
     targetRevision: HEAD
     helm:
