@@ -3,5 +3,5 @@ image:
   repository: ghcr.io/limmer55/streamdock
   tag: stable
 service:
-  type: LoadBalancer
+  type: NodePort
   port: 6050
