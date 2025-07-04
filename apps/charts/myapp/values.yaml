@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
-  repository: nginx
-  tag: latest
+  repository: ghcr.io/limmer55/streamdock
+  tag: stable
 service:
   type: LoadBalancer
   port: 80
