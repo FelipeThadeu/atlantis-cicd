@@ -4,15 +4,21 @@ metadata:
   name: myapp-hpa
   namespace: argocd
 spec:
-  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp-dev
   source:
     repoURL: https://github.com/YOUR_ORG/YOUR_REPO.git
     path: autoscaling
     targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: myapp-dev
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      
